@@ -1,9 +1,15 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import react from '@astrojs/react';
-import viteConfig from './vite.config.js';
 
 export default defineConfig({
   integrations: [react()],
-  vite: () => viteConfig
+  vite: {
+    plugins: [tailwindcss()],
+    preview: {
+      host: true,
+      port: Number(process.env.PORT) || 4321,
+      allowedHosts: ['.railway.app']
+    }
+  }
 });
