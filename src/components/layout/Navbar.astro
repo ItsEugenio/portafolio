@@ -2,34 +2,132 @@
 import '../../styles/global.css';
 ---
 
-<nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="https://avatars.githubusercontent.com/u/111914875?v=4&size=64" class="h-8 rounded-full" alt="Flowbite Logo" />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ItsEugenio</span>
-      </a>
-      <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
-          <span class="sr-only">Abrir menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+<nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-100/20 transition-all duration-300 dark:bg-gray-900/80 dark:border-gray-700/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="#hero" class="flex items-center space-x-3 text-xl font-bold text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 transition-colors">
+          <img src="https://avatars.githubusercontent.com/u/111914875?v=4&size=64" class="h-8 w-8 rounded-full" alt="Eugenio Gordillo" />
+          <span>Eugenio Gordillo</span>
+        </a>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a href="#hero" class="nav-link text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">
+            Inicio
+          </a>
+          <a href="#about" class="nav-link text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">
+            Sobre mí
+          </a>
+          <a href="#projects" class="nav-link text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">
+            Proyectos
+          </a>
+
+          <a href="#experience" class="nav-link text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">
+            Experiencia
+          </a>
+          <a href="#contact" class="nav-link text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">
+            Contacto
+          </a>
+        </div>
+      </div>
+
+      <div class="md:hidden">
+        <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors">
+          <span class="sr-only">Abrir menú principal</span>
+          <svg id="menu-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
-        <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Proyectos</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Sobre mi</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Habilidades</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Experiencia</a>
-          </li>
-        </ul>
+          <svg id="close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+      <a href="#hero" class="mobile-nav-link block px-3 py-2 text-base font-medium text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-md transition-colors">
+        Inicio
+      </a>
+      <a href="#about" class="mobile-nav-link block px-3 py-2 text-base font-medium text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-md transition-colors">
+        Sobre mí
+      </a>
+      <a href="#projects" class="mobile-nav-link block px-3 py-2 text-base font-medium text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-md transition-colors">
+        Proyectos
+      </a>
+      <a href="#skills" class="mobile-nav-link block px-3 py-2 text-base font-medium text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-md transition-colors">
+        Habilidades
+      </a>
+      <a href="#experience" class="mobile-nav-link block px-3 py-2 text-base font-medium text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-md transition-colors">
+        Experiencia
+      </a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 text-base font-medium text-white dark:text-white hover:text-gray-300 dark:hover:text-gray-300 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-md transition-colors">
+        Contacto
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = targetId ? document.getElementById(targetId) : null;
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+
+          if (mobileMenu && menuIcon && closeIcon && !mobileMenu.classList.contains('hidden')) {
+           mobileMenu.classList.add('hidden');
+           menuIcon.classList.remove('hidden');
+           closeIcon.classList.add('hidden');
+         }
+      });
+    });
+
+    if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
+      mobileMenuButton.addEventListener('click', function() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        if (window.scrollY > 50) {
+          navbar.classList.add('bg-gray-900/95', 'dark:bg-gray-900/95');
+          navbar.classList.remove('bg-gray-900/80', 'dark:bg-gray-900/80');
+        } else {
+          navbar.classList.add('bg-gray-900/80', 'dark:bg-gray-900/80');
+          navbar.classList.remove('bg-gray-900/95', 'dark:bg-gray-900/95');
+        }
+      }
+    });
+  });
+</script>
   
