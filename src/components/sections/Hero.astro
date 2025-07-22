@@ -1,0 +1,133 @@
+---
+import { Button } from "@/components/ui/button"
+import { Icon } from "@iconify/react"
+---
+
+<section id="hero" class="min-h-[100svh] sm:min-h-screen flex pt-6 sm:pt-12 pb-4 sm:pb-0 items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto text-center">
+    <div class="space-y-6 sm:space-y-8">
+
+      <div class="space-y-3 sm:space-y-4">
+        <div class="animate-fade-in-up">
+          <h1 class="scroll-m-20 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-balance tracking-tight text-gray-900 dark:text-black">
+            ¡Hola! Soy <span class="text-blue-600 dark:text-blue-400">Eugenio</span>
+          </h1>
+        </div>
+        
+        <div class="animate-fade-in-up animation-delay-200">
+          <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-600 dark:text-black">
+            Desarrollador Frontend Especializado
+          </h2>
+        </div>
+
+        <div class="animate-fade-in-up animation-delay-400">
+          <p class="text-base sm:text-lg md:text-xl text-gray-500 dark:text-black max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
+            Creando experiencias web modernas e interactivas con 
+            <span class="text-blue-600 dark:text-blue-400 font-semibold">React</span>, 
+            <span class="text-blue-600 dark:text-blue-400 font-semibold">Angular</span> y 
+            <span class="text-blue-600 dark:text-blue-400 font-semibold">Next.js</span>. 
+            Especializado en desarrollo móvil con Flutter y soluciones full-stack.
+          </p>
+        </div>
+      </div>
+
+      <div class="animate-fade-in-up animation-delay-600">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto px-4 sm:px-0">
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">+3</div>
+            <div class="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Años de Experiencia</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">+10</div>
+            <div class="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Proyectos Completados</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">15+</div>
+            <div class="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Tecnologías Dominadas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-fade-in-up animation-delay-800">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
+          <Button size="lg" className="w-full sm:w-auto text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 px-8 py-3 text-lg font-medium rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+            <a href="#contact" class="flex items-center justify-center gap-2 w-full">
+              <Icon icon="lucide:mail" className="w-5 h-5" />
+              Contactame
+            </a>
+          </Button>
+          
+          <Button variant="outline" size="lg" className="w-full sm:w-auto border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-8 py-3 text-lg font-medium rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+            <a href="#projects" class="flex items-center justify-center gap-2 w-full">
+              <Icon icon="lucide:briefcase" className="w-5 h-5" />
+              Ver Proyectos
+            </a>
+          </Button>
+        </div>
+      </div>
+
+      <div class="animate-fade-in-up animation-delay-1000">
+        <div class="pt-6 sm:pt-8">
+          <p class="text-xs sm:text-sm text-gray-500 dark:text-black mb-3 sm:mb-4">Tecnologías principales:</p>
+          <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-6 opacity-70 hover:opacity-100 transition-opacity duration-300 px-2 sm:px-0">
+            <div class="flex items-center gap-1.5 sm:gap-2 bg-white dark:bg-gray-800 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full shadow-md hover:shadow-lg transition-shadow">
+              <Icon icon="skill-icons:react-dark" width="32" height="32" client:load />
+              <span class="text-xs text-gray-600 dark:text-gray-400 mt-2">React</span> 
+            </div>
+            
+            <div class="flex items-center gap-1.5 sm:gap-2 bg-white dark:bg-gray-800 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full shadow-md hover:shadow-lg transition-shadow">
+              <Icon icon="skill-icons:angular-dark" width="32" height="32" client:load />
+              <span class="text-xs text-gray-600 dark:text-gray-400 mt-2">Angular</span> 
+            </div>
+            
+            <div class="flex items-center gap-1.5 sm:gap-2 bg-white dark:bg-gray-800 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full shadow-md hover:shadow-lg transition-shadow">
+              <Icon icon="skill-icons:flutter-dark" width="32" height="32" client:load />
+              <span class="text-xs text-gray-600 dark:text-gray-400 mt-2">Flutter</span> 
+            </div>
+            
+            <div class="flex items-center gap-1.5 sm:gap-2 bg-white dark:bg-gray-800 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full shadow-md hover:shadow-lg transition-shadow">
+              <Icon icon="skill-icons:typescript" width="32" height="32" client:load />
+              <span class="text-xs text-gray-600 dark:text-gray-400 mt-2">TypeScript</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 0.8s;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

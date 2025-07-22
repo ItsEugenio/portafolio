@@ -1,0 +1,167 @@
+---
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+---
+
+<section
+  id="contact"
+  class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+      >
+        ¡Trabajemos <span class="text-blue-600 dark:text-blue-400">Juntos!</span
+        >
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+        ¿Tienes un proyecto en mente? Me encantaría escuchar sobre tu idea y
+        discutir cómo puedo ayudarte
+      </p>
+    </div>
+
+    <div class="flex justify-center items-start w-full">
+      <Card className="p-6 max-w-md w-full bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300">
+        <div class="text-center">
+          <div class="mb-4">
+            <svg class="w-12 h-12 mx-auto text-blue-600 dark:text-blue-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              Contáctame Directamente
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              Haz clic para copiar mi correo electrónico
+            </p>
+          </div>
+          
+          <Button 
+            id="copy-email-btn"
+            className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
+          >
+            <svg id="copy-icon" class="w-5 h-5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span id="copy-text">itseugenio.dev@gmail.com</span>
+          </Button>
+          
+          <div id="copy-message" class="hidden mt-3 text-sm text-green-600 dark:text-green-400 font-medium">
+            ¡Correo copiado al portapapeles!
+          </div>
+        </div>
+      </Card>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const copyEmailBtn = document.getElementById("copy-email-btn") as HTMLButtonElement | null;
+    const copyMessage = document.getElementById("copy-message") as HTMLElement | null;
+    const copyIcon = document.getElementById("copy-icon") as HTMLElement | null;
+    const copyText = document.getElementById("copy-text") as HTMLElement | null;
+    
+    if (copyEmailBtn && copyMessage && copyIcon && copyText) {
+      copyEmailBtn.addEventListener("click", async function() {
+        const email = "itseugenio.dev@gmail.com";
+        
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand('copy');
+            textArea.remove();
+          }
+          
+          copyIcon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          `;
+          
+          copyMessage.classList.remove("hidden");
+          
+          setTimeout(() => {
+            copyIcon.innerHTML = `
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            `;
+            copyMessage.classList.add("hidden");
+          }, 2000);
+          
+        } catch (err) {
+          console.error('Error al copiar:', err);
+          alert(`Correo: ${email}`);
+        }
+      });
+    }
+
+    const form = document.getElementById(
+      "contact-form",
+    ) as HTMLFormElement | null;
+    const messageDiv = document.getElementById(
+      "form-message",
+    ) as HTMLElement | null;
+
+    if (form && messageDiv) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        const submitBtn = form.querySelector(
+          'button[type="submit"]',
+        ) as HTMLButtonElement | null;
+        if (submitBtn) {
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = `
+            <span class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              Enviando...
+            </span>
+          `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+
+
+            messageDiv.className =
+              "mt-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800";
+            messageDiv.innerHTML = `
+              <div class="flex items-center gap-2 text-green-700 dark:text-green-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="font-medium">¡Mensaje enviado con éxito!</span>
+              </div>
+              <p class="text-green-600 dark:text-green-400 text-sm mt-1">
+                Gracias por contactarme. Te responderé lo antes posible.
+              </p>
+            `;
+            messageDiv.classList.remove("hidden");
+
+            // Resetear formulario
+            form.reset();
+
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            setTimeout(() => {
+              messageDiv.classList.add("hidden");
+            }, 5000);
+          }, 2000);
+        }
+      });
+    }
+  });
+</script>
+
