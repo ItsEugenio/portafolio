@@ -22,14 +22,34 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'barber track',
+    title: 'Barber Track',
+    description: 'Plataforma web para un sistema de gestión para barberos. Incluye control de citas, clientes, horarios, barberos y estadisticas. Una app móvil con flutter para  para agendar citas, explorar barberías y gestionar servicios. Notificaciones en tiempo real. Recomendaciones cortes mediante API de Chat GPT',
+    tags: ['react', 'fullstack'],
+    technologies: [
+      { name: 'React', icon: 'skill-icons:react-dark', title: 'React' },
+      { name: 'Flutter', icon: 'skill-icons:flutter-dark', title: 'Flutter' },
+       { name: 'APIs', icon: 'material-symbols:api', title: 'APIs' },
+      { name: 'Tailwind', icon: 'skill-icons:tailwindcss-dark', title: 'Tailwind' },
+      { name: 'Shadcn/ui', icon: 'simple-icons:shadcnui', title: 'Shadcn/ui' },
+
+    ],
+    features: [
+      'Notificaciones push personalizadas',
+      'Gestión de citas',
+      'Recomendaciones de cortes con IA',
+      'Panel administrativo completo'
+    ],
+    isPrivate: true
+  },
+  {
     id: 'vecindapp',
     title: 'VecindApp',
-    description: 'Plataforma web y móvil para gestión de acceso a residenciales. Incluye 3 aplicaciones React especializadas para residentes, administradores y guardias de seguridad.',
+    description: 'Plataforma web y móvil para gestión de acceso a residenciales. Incluye 3 aplicaciones React especializadas para residentes, administradores y guardias de seguridad y 2 aplicaciones Flutter especializadas para residentes y guardias de seguridad.',
     tags: ['react', 'flutter', 'fullstack'],
     technologies: [
       { name: 'React', icon: 'skill-icons:react-dark', title: 'React' },
       { name: 'Flutter', icon: 'skill-icons:flutter-dark', title: 'Flutter' },
-      { name: 'WebSockets', icon: 'logos:websocket', title: 'WebSockets' },
       { name: 'Shadcn/ui', icon: 'simple-icons:shadcnui', title: 'Shadcn/ui' },
       { name: 'Tailwind', icon: 'skill-icons:tailwindcss-dark', title: 'Tailwind' }
     ],
@@ -149,12 +169,12 @@ const ProjectsFilter: React.FC = () => {
 
   useEffect(() => {
     setIsAnimating(true);
-    
+
     const timer = setTimeout(() => {
       if (activeFilter === 'all') {
         setVisibleProjects(projects);
       } else {
-        setVisibleProjects(projects.filter(project => 
+        setVisibleProjects(projects.filter(project =>
           project.tags.includes(activeFilter)
         ));
       }
@@ -172,10 +192,10 @@ const ProjectsFilter: React.FC = () => {
     if (project.component) {
       return project.component;
     }
-    
+
     if (project.isPrivate) {
       return (
-        <button 
+        <button
           disabled
           className="w-full bg-gray-400 text-white text-xs px-4 py-2 rounded-md cursor-not-allowed flex items-center justify-center"
           title="Repositorio privado"
@@ -187,12 +207,12 @@ const ProjectsFilter: React.FC = () => {
         </button>
       );
     }
-    
+
     if (project.githubUrl) {
       return (
-        <a 
+        <a
           href={project.githubUrl}
-          target="_blank" 
+          target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs px-4 py-2 rounded-md transition-colors flex items-center justify-center"
         >
@@ -203,7 +223,7 @@ const ProjectsFilter: React.FC = () => {
         </a>
       );
     }
-    
+
     return null;
   };
 
@@ -220,14 +240,13 @@ const ProjectsFilter: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {filters.map((filter) => (
-              <Button 
+              <Button
                 key={filter.key}
                 onClick={() => handleFilterChange(filter.key)}
-                className={`transition-all duration-200 ${
-                  activeFilter === filter.key
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600'
-                    : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600'
-                }`}
+                className={`transition-all duration-200 ${activeFilter === filter.key
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600'
+                  : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600'
+                  }`}
               >
                 {filter.label}
               </Button>
@@ -237,7 +256,7 @@ const ProjectsFilter: React.FC = () => {
 
         <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
           {visibleProjects.map((project, index) => (
-            <div 
+            <div
               key={project.id}
               className="transition-all duration-300 transform hover:-translate-y-2"
               style={{
@@ -252,12 +271,12 @@ const ProjectsFilter: React.FC = () => {
                   <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-3 mb-4">
                     {project.technologies.map((tech) => (
-                      <div 
+                      <div
                         key={tech.name}
-                        className="flex items-center gap-2 text-gray-700 dark:text-gray-300" 
+                        className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
                         title={tech.title}
                       >
                         <Icon icon={tech.icon} width="20" height="20" />
@@ -271,7 +290,7 @@ const ProjectsFilter: React.FC = () => {
                       <li key={index}>• {feature}</li>
                     ))}
                   </ul>
-                  
+
                   <div className="flex gap-2">
                     {renderActionButton(project)}
                   </div>
