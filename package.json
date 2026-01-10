@@ -4,12 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --host",
-    "start": "cross-env NODE_ENV=production astro preview --port=$PORT --host",
+    "start": "npx serve dist/ -l $PORT",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.1",
     "@astrojs/react": "^4.3.0",
     "@iconify/react": "^6.0.0",
     "@radix-ui/react-dialog": "^1.1.14",
