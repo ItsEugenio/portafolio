@@ -9,7 +9,7 @@ export default defineConfig({
     preview: {
       host: true,
       port: Number(process.env.PORT) || 4321,
-      allowedHosts: ['.railway.app']
+      allowedHosts: ['.railway.app', 'www.itseugenio.dev', 'itseugenio.dev']
     }
   }
 });
